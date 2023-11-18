@@ -1,5 +1,9 @@
 import express from "express";
 import {
+  getHamburguesas,
+  getIngredientes,
+  getCategorias,
+  getChefs,
   primerEndpoint,
   segundoEndpoint,
   tercerEndpoint,
@@ -8,10 +12,6 @@ import {
   sextoEndpoint,
   septimoEndpoint,
   octavoEndpoint,
-  getHamburguesas,
-  getIngredientes,
-  getCategorias,
-  getChefs,
   novenoEndpoint,
   decimoEndpoint,
   undecimoEndpoint,
@@ -93,5 +93,176 @@ router.put("/endpoint25", vigesimoquintoEndpoint);
 router.delete("/endpoint7", septimoEndpoint);
 router.delete("/endpoint18", decimooctavoEndpoint);
 router.delete("/endpoint29", vigesimonovenoEndpoint);
+
+/**
+ * @swagger
+ *  components:
+ *    schemas:
+ *      Categorias:
+ *        type: object
+ *        properties:
+ *          nombre:
+ *            type: string
+ *            description: Nombre de la categoria
+ *          descripcion:
+ *            type: string
+ *            description: Descripcion de la categoria
+ *        required:
+ *          -nombre
+ *          -descripcion
+ *        example:
+ *          nombre: Cerdo
+ *          descripcion: Hamburguesa que contiene de cerdo
+ *      Chefs:
+ *        type: object
+ *        properties:
+ *          nombre:
+ *            type: string
+ *            description: Nombre del chef
+ *          especialidad:
+ *            type: string
+ *            description: Descripcion del chef
+ *        required:
+ *          -nombre
+ *          -especialidad
+ *        example:
+ *          nombre: Carlitos
+ *          especialidad: Comida Asiática
+ *      Hamburguesas:
+ *        type: object
+ *        properties:
+ *          nombre:
+ *            type: string
+ *            description: Nombre de la hamburguesa
+ *          categoria:
+ *            type: string
+ *            description: Categoria a la que pertenece la hamburguesa
+ *          ingredientes:
+ *            type: array
+ *            description: Ingredientes que contiene la hamburguesa
+ *          precio:
+ *            type: number
+ *            description: Precio de la hamburguesa
+ *          chef:
+ *            type: string
+ *            description: Nombre del chef que realizó la hamburguesa
+ *        required:
+ *          -nombre
+ *          -categoria
+ *          -ingredientes
+ *          -precio
+ *          -chef
+ *        example:
+ *          nombre: piggyHam
+ *          categoria: Cerdo
+ *          ingredientes: [Pan integral, Queso suizo, Aguacate , Cerdo]
+ *          precio: 25000
+ *          chef: ChefB
+ *      Ingredientes:
+ *        type: object
+ *        properties:
+ *          nombre:
+ *            type: string
+ *            description: Nombre del ingrediente
+ *          descripcion:
+ *            type: string
+ *            description: Descripcion del ingrediente
+ *          precio:
+ *            type: number
+ *            description: Precio del ingrediente
+ *          stock:
+ *            type: number
+ *            description: Cantidad del ingrediente aun existente
+ *        required:
+ *          -nombre
+ *          -descripcion
+ *          -precio
+ *          -stock
+ *        example:
+ *          nombre: Cebolla caramelizada
+ *          description: Una cebolla pero caramelizada
+ *          precio: 500
+ *          stock: 400
+ */
+
+//TODO -- GETS GENERALES
+
+/**
+ * @swagger
+ *    /hamburguesas:
+ *       get:
+ *          summary: Obtener hamburguesa
+ *          tags: [GETS-Generales]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/hamburguesas'
+ *             400:
+ *                description: No se pudieron obtener los alquileres            
+ */
+
+/**
+ * @swagger
+ *    /ingredientes:
+ *       get:
+ *          summary: Obtener alquileres
+ *          tags: [Alquileres]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron los alquileres
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/alquileres'
+ *             400:
+ *                description: No se pudieron obtener los alquileres            
+ */
+
+/**
+ * @swagger
+ *    /categorias:
+ *       get:
+ *          summary: Obtener alquileres
+ *          tags: [Alquileres]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron los alquileres
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/alquileres'
+ *             400:
+ *                description: No se pudieron obtener los alquileres            
+ */
+
+/**
+ * @swagger
+ *    /chefs:
+ *       get:
+ *          summary: Obtener alquileres
+ *          tags: [Alquileres]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron los alquileres
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/alquileres'
+ *             400:
+ *                description: No se pudieron obtener los alquileres            
+ */
+
+//TODO -- GETS ENDPOINTS
 
 export default router;
