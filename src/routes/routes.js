@@ -191,7 +191,7 @@ router.delete("/endpoint29", vigesimonovenoEndpoint);
  * @swagger
  *    /hamburguesas:
  *       get:
- *          summary: Obtener hamburguesa
+ *          summary: Obtener hamburguesas
  *          tags: [GETS-Generales]
  *          responses:
  *             200:
@@ -201,68 +201,372 @@ router.delete("/endpoint29", vigesimonovenoEndpoint);
  *                      schema:
  *                         type: array
  *                         items:
- *                            $ref: '#/components/schemas/hamburguesas'
+ *                            $ref: '#/components/schemas/Hamburguesas'
  *             400:
- *                description: No se pudieron obtener los alquileres            
+ *                description: No se pudieron obtener las hamburguesas            
  */
 
 /**
  * @swagger
  *    /ingredientes:
  *       get:
- *          summary: Obtener alquileres
- *          tags: [Alquileres]
+ *          summary: Obtener ingredientes
+ *          tags: [GETS-Generales]
  *          responses:
  *             200:
- *                description: Se obtuvieron los alquileres
+ *                description: Se obtuvieron los ingredientes
  *                content:
  *                   application/json:
  *                      schema:
  *                         type: array
  *                         items:
- *                            $ref: '#/components/schemas/alquileres'
+ *                            $ref: '#/components/schemas/Ingredientes'
  *             400:
- *                description: No se pudieron obtener los alquileres            
+ *                description: No se pudieron obtener los ingredientes            
  */
 
 /**
  * @swagger
  *    /categorias:
  *       get:
- *          summary: Obtener alquileres
- *          tags: [Alquileres]
+ *          summary: Obtener categorias
+ *          tags: [GETS-Generales]
  *          responses:
  *             200:
- *                description: Se obtuvieron los alquileres
+ *                description: Se obtuvieron los categorias
  *                content:
  *                   application/json:
  *                      schema:
  *                         type: array
  *                         items:
- *                            $ref: '#/components/schemas/alquileres'
+ *                            $ref: '#/components/schemas/Categorias'
  *             400:
- *                description: No se pudieron obtener los alquileres            
+ *                description: No se pudieron obtener los categorias            
  */
 
 /**
  * @swagger
  *    /chefs:
  *       get:
- *          summary: Obtener alquileres
- *          tags: [Alquileres]
+ *          summary: Obtener chefs
+ *          tags: [GETS-Generales]
  *          responses:
  *             200:
- *                description: Se obtuvieron los alquileres
+ *                description: Se obtuvieron los chefs
  *                content:
  *                   application/json:
  *                      schema:
  *                         type: array
  *                         items:
- *                            $ref: '#/components/schemas/alquileres'
+ *                            $ref: '#/components/schemas/Chefs'
  *             400:
- *                description: No se pudieron obtener los alquileres            
+ *                description: No se pudieron obtener los chefs            
  */
 
 //TODO -- GETS ENDPOINTS
+
+/**
+ * @swagger
+ *    /endpoint1:
+ *       get:
+ *          summary: Obtener los ingredientes donde el stock sea menor a 400
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron los ingredientes
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Ingredientes'
+ *             400:
+ *                description: No se pudieron obtener los ingredientes            
+ */
+
+/**
+ * @swagger
+ *    /endpoint2:
+ *       get:
+ *          summary: Obtener todas las hamburguesas donde la categoria sea vegetariana
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se pudieron obtener las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint3:
+ *       get:
+ *          summary: Obtener todos los chefs con especialidad en carnes
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron los chefs
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Chefs'
+ *             400:
+ *                description: No se pudieron obtener los chefs            
+ */
+
+/**
+ * @swagger
+ *    /endpoint4:
+ *       get:
+ *          summary: Aumentar el precio de todos los ingredientes en 1.5
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se aumento con exito
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Ingredientes'
+ *             400:
+ *                description: No se pudo aumentar el precio          
+ */
+
+/**
+ * @swagger
+ *    /endpoint5:
+ *       get:
+ *          summary: Obtener todas las hamburguesas preparadas por el chefB
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se pudieron obtener las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint6:
+ *       get:
+ *          summary: Obtener todas las categorias
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las categorias
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Categorias'
+ *             400:
+ *                description: No se pudieron obtener las categorias            
+ */
+
+/**
+ * @swagger
+ *    /endpoint7:
+ *       get:
+ *          summary: Eliminar todos los ingredientes que tengan un stock de 0
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron los ingredientes
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Ingredientes'
+ *             400:
+ *                description: No se pudieron obtener los ingredientes            
+ */
+
+/**
+ * @swagger
+ *    /endpoint8:
+ *       get:
+ *          summary: Actualizar la hamburguesa clásica por una insertada por el usuario
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se pudieron obtener las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint9:
+ *       get:
+ *          summary: Encontrar todas las hamburguesas que tenga entre sus ingredientes el pan integral
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se pudieron obtener las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint10:
+ *       get:
+ *          summary: Encontrar al chefc y cambiarle la especialidad
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron los chefs
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Chefs'
+ *             400:
+ *                description: No se pudieron obtener los chefs            
+ */
+
+/**
+ * @swagger
+ *    /endpoint11:
+ *       get:
+ *          summary: Obtener el ingrediente con el precio mas bajo
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron los ingredientes
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Ingredientes'
+ *             400:
+ *                description: No se pudieron obtener los ingredientes            
+ */
+
+/**
+ * @swagger
+ *    /endpoint12:
+ *       get:
+ *          summary: Encontrar las hamburguesas que entre sus ingredientes no se encuentre el queso cheddar
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se pudieron obtener las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint13:
+ *       get:
+ *          summary: Incrementar el stock de un ingrediente
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron los ingredientes
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Ingredientes'
+ *             400:
+ *                description: No se pudieron obtener los ingredientes            
+ */
+
+/**
+ * @swagger
+ *    /endpoint14:
+ *       get:
+ *          summary: Obtener un ingrediente donde su descripcion contenga la palabra clasico
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron los ingredientes
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Ingredientes'
+ *             400:
+ *                description: No se pudieron obtener los ingredientes            
+ */
+
+/**
+ * @swagger
+ *    /endpoint15:
+ *       get:
+ *          summary: Obtener todas las hamburguesas donde el precio sea menor a 9
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron los hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/hamburguesas'
+ *             400:
+ *                description: No se pudieron obtener los hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint16:
+ *       get:
+ *          summary: Obtener todos los chefs con especialidad en carnes
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron los chefs
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Chefs'
+ *             400:
+ *                description: No se pudieron obtener los chefs            
+ */
 
 export default router;
