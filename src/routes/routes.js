@@ -381,10 +381,17 @@ router.delete("/endpoint29", vigesimonovenoEndpoint);
 
 /**
  * @swagger
- *    /endpoint7:
- *       get:
+ *    /endpoint7/{id}:
+ *       delete:
  *          summary: Eliminar todos los ingredientes que tengan un stock de 0
  *          tags: [Endpoints]
+ *          parameters:
+ *            - in: path
+ *              name: id
+ *              schema:
+ *                type: string
+ *              required: true
+ *              description: Ingrediente Id
  *          responses:
  *             200:
  *                description: Se obtuvieron los ingredientes
@@ -400,10 +407,17 @@ router.delete("/endpoint29", vigesimonovenoEndpoint);
 
 /**
  * @swagger
- *    /endpoint8:
- *       get:
+ *    /endpoint8/{id}:
+ *       put:
  *          summary: Actualizar la hamburguesa clásica por una insertada por el usuario
  *          tags: [Endpoints]
+ *          requestBody:
+ *            required: true
+ *            content:
+ *              application/json:
+ *                schema:
+ *                  type: object
+ *                  $ref: '#components/schemas/Hamburguesas'
  *          responses:
  *             200:
  *                description: Se obtuvieron las hamburguesas
@@ -438,10 +452,17 @@ router.delete("/endpoint29", vigesimonovenoEndpoint);
 
 /**
  * @swagger
- *    /endpoint10:
- *       get:
+ *    /endpoint10/{id}:
+ *       put:
  *          summary: Encontrar al chefc y cambiarle la especialidad
  *          tags: [Endpoints]
+ *          requestBody:
+ *            required: true
+ *            content:
+ *              application/json:
+ *                schema:
+ *                  type: object
+ *                  $ref: '#/components/schemas/Chefs'
  *          responses:
  *             200:
  *                description: Se obtuvieron los chefs
@@ -495,10 +516,17 @@ router.delete("/endpoint29", vigesimonovenoEndpoint);
 
 /**
  * @swagger
- *    /endpoint13:
- *       get:
+ *    /endpoint13/{id}:
+ *       put:
  *          summary: Incrementar el stock de un ingrediente
  *          tags: [Endpoints]
+ *          requestBody:
+ *            required: true
+ *            content:
+ *              application/json:
+ *                schema:
+ *                  type: object
+ *                  $ref: '#/components/schemas/Ingredientes'
  *          responses:
  *             200:
  *                description: Se obtuvieron los ingredientes
@@ -567,6 +595,491 @@ router.delete("/endpoint29", vigesimonovenoEndpoint);
  *                            $ref: '#/components/schemas/Chefs'
  *             400:
  *                description: No se pudieron obtener los chefs            
+ */
+
+/**
+ * @swagger
+ *    /endpoint17:
+ *       get:
+ *          summary: Obtener todas las categorias que tengan gourmet en su descripcion
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las categorias
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Categorias'
+ *             400:
+ *                description: No se pudieron obtener las categorias            
+ */
+
+/**
+ * @swagger
+ *    /endpoint18:
+ *       delete:
+ *          summary: Eliminar todas las hamburguesas que tengan menos de 5 ingredientes
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se eliminaron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se pudieron eliminar las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint19:
+ *       post:
+ *          summary: Añadir un chef con la especialidad de cocina asiática
+ *          tags: [Endpoints]
+ *          requestBody:
+ *            required: true
+ *            content:
+ *              application/json:
+ *                schema:
+ *                  type: object
+ *                  $ref: '#/components/schemas/Chefs'
+ *          responses:
+ *             200:
+ *                description: Se añadio la hamburguesa
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se pudieron añadir la hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint20:
+ *       get:
+ *          summary: Ordenar de forma ascendente las hamburguesas con respecto a su precio
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se pudieron ordenar las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint21:
+ *       get:
+ *          summary: Obtener los ingredietes que tengan un valor menor que 5 y mayor que 2 
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron los ingredientess
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Ingredientes'
+ *             400:
+ *                description: No se obtuvieron los ingredientes            
+ */
+
+/**
+ * @swagger
+ *    /endpoint22:
+ *       get:
+ *          summary: Encontrar el ingrediente con nombre pan y cambiarle la descripcion por 'Pan fresco y crujiente'
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron los ingredientes
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Ingredientes'
+ *             400:
+ *                description: No se obtuvieron los ingredientes            
+ */
+
+/**
+ * @swagger
+ *    /endpoint23:
+ *       get:
+ *          summary: Obtener las hamburguesas que tengan tomate y levhuga dentro de sus ingredientes 
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se obtuvieron las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint24:
+ *       get:
+ *          summary: Encontrar a todos los chefs menos al Chef A 
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron los chefs
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Chefs'
+ *             400:
+ *                description: No se obtuvieron los chefs            
+ */
+
+/**
+ * @swagger
+ *    /endpoint25:
+ *       put:
+ *          summary: Aumentar por 2 el precio de las hamburguesas que su categoria sea gourmet 
+ *          tags: [Endpoints]
+ *          requestBody:
+ *            required: true
+ *            content:
+ *              application/json:
+ *                schema:
+ *                  type: object
+ *                  $ref: '#/components/schemas/Hamburguesas'
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se obtuvieron las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint26:
+ *       get:
+ *          summary: Obtener los ingredietes ordenados por orden ascendente 
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron los ingredientes
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Ingredientes'
+ *             400:
+ *                description: No se obtuvieron los ingredientes            
+ */
+
+/**
+ * @swagger
+ *    /endpoint27:
+ *       get:
+ *          summary: Obtener la hamburguesa con el precio mas alto 
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se obtuvieron las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint28:
+ *       post:
+ *          summary: Obtener la hamburguesa con el precio mas alto 
+ *          tags: [Endpoints]
+ *          requestBody:
+ *            required: true
+ *            content:
+ *              application/json:
+ *                schema:
+ *                  type: object
+ *                  $ref: '#/components/schemas/Hamburguesas'
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se obtuvieron las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint29:
+ *       delete:
+ *          summary: Eliminar los chefs con especialidad de cocina vegetariana
+ *          tags: [Endpoints]
+ *          requestBody:
+ *            required: true
+ *            content:
+ *              application/json:
+ *                schema:
+ *                  type: object
+ *                  $ref: '#/components/schemas/Chefs'
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron los chefs
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Chefs'
+ *             400:
+ *                description: No se obtuvieron los chefs            
+ */
+
+/**
+ * @swagger
+ *    /endpoint30:
+ *       get:
+ *          summary: Encontrar las hamburguesas que tengan exactamente 7 ingredientes
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se obtuvieron las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint31:
+ *       get:
+ *          summary: Encontrar las hamburguesas gourmet y ordenarla por el precio
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se obtuvieron las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint32:
+ *       get:
+ *          summary: Obtener la cantidad de veces que cada ingrediente se encuentra en una hamburguesa
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se obtuvieron las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint33:
+ *       get:
+ *          summary: Encontrar la cantidad de hamburguesas que ha preparado cada chef
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se obtuvieron las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint34:
+ *       get:
+ *          summary: Encontrar la categoria que mas se encuentra en las hamburguesas
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se obtuvieron las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint35:
+ *       get:
+ *          summary: Encontrar el precio total de las hamburguesas que realizó cada chef 
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se obtuvieron las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint36:
+ *       get:
+ *          summary: Encontrar el ingrediente que no se encuentre en ninguna hamburguesa 
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se obtuvieron las hamburguesas            
+ */
+
+
+/**
+ * @swagger
+ *    /endpoint37:
+ *       get:
+ *          summary: Encontrar la categoria y su descripcion 
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se obtuvieron las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint38:
+ *       get:
+ *          summary: Encontrar el chef que la suma de los ingredientes de su hamburguesa sea mayor al resto
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se obtuvieron las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint39:
+ *       get:
+ *          summary: Encontrar el precio promedio de cada categoria de hamburguesa 
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se obtuvieron las hamburguesas            
+ */
+
+/**
+ * @swagger
+ *    /endpoint40:
+ *       get:
+ *          summary: Encontrar la hamburguesa mas cara de cada chef y cual fue su precio 
+ *          tags: [Endpoints]
+ *          responses:
+ *             200:
+ *                description: Se obtuvieron las hamburguesas
+ *                content:
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items:
+ *                            $ref: '#/components/schemas/Hamburguesas'
+ *             400:
+ *                description: No se obtuvieron las hamburguesas            
  */
 
 export default router;

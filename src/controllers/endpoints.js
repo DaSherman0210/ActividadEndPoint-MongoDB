@@ -295,11 +295,11 @@ const vigesimotercerEndpoint = async (req, res) => {
 
 const vigesimocuartoEndpoint = async (req,res) =>{
   try {
-     const query = {nombre: {$ne:"ChefA"}};
-     const Chef = await Chefs.find(query).toArray();
-     res.json(Chef)
+    const query = {nombre: {$ne:"ChefA"}};
+    const Chef = await Chefs.find(query).toArray();
+    res.json(Chef)
   } catch (error) {
-     console.log(error);
+    console.log(error);
   }
 }
 
